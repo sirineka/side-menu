@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Side Menu</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+      }
+      .overlay {
+        height: 100%;
+        width: 0%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: black;
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+      .overlay-content {
+        position: relative;
+        top: 5%;
+        width: 100%;
+        text-align: center;
+        margin-top: 25px;
+      }
+      .overlay a {
+        padding: 10px;
+        text-decoration: none;
+        font-size: 15px;
+        color: bisque;
+        display: block;
+        transition: 0.3s;
+      }
+      .overlay a:hover {
+        color: yellow;
+      }
+      .overlay a:focus {
+        color: brown;
+      }
+      .burger {
+        font-size: 35px;
+        cursor: pointer;
+        background-color: beige;
+      }
+      .sticky {
+        position: sticky;
+        top: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="myNav" class="overlay">
+      <a href="#" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="#">Gallery</a>
+      </div>
+    </nav>
+    <section>
+      <div id="myBurger" onclick="openNav()" class="burger">&#9776; Menu</div>
+      <h2>About</h2>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vero
+        blanditiis eligendi dolor expedita. At, omnis ex illum aspernatur
+        aliquid animi assumenda repellat exercitationem minus obcaecati
+        voluptate repellendus id a. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Consequuntur quod consectetur quibusdam qui, animi ab
+        laborum vel perspiciatis tempora unde voluptatem suscipit, dicta quasi.
+        Repellendus explicabo rem id ipsum sit! Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Quisquam cum totam rem perferendis natus
+        quia reprehenderit! Labore nostrum accusantium alias, veritatis possimus
+        voluptatum cumque excepturi voluptates consequatur! Facilis, inventore
+        amet! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae
+        aliquam, ipsum eos minima fugit veritatis soluta assumenda doloremque in
+        incidunt tenetur consectetur repellendus, blanditiis ea sunt velit
+        numquam possimus eius! Lorem, ipsum dolor sit amet consectetur
+        adipisicing elit. Esse, velit tempora, alias nam beatae tenetur totam ex
+        maiores odit doloremque aut soluta quis omnis a in eos perspiciatis
+        quae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quos
+        possimus architecto, ratione dicta accusantium vel vitae omnis neque
+        quas ipsam enim magnam voluptates sequi fugiat minus amet excepturi
+        dolorem?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi
+        officiis provident sed debitis esse totam, voluptas ex amet hic
+        voluptates quas natus repudiandae quo quos magni cupiditate vel aperiam
+        dolorem?Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Voluptatum natus, modi quis tempore odio, molestias nam hic dicta optio
+        est eius sed sit sint consequatur nesciunt at enim delectus. Qui?Lorem
+        ipsum dolor sit amet, consectetur adipisicing elit. Earum autem
+        accusantium veritatis ut quisquam! Aut modi itaque vel voluptatum
+        temporibus facere assumenda expedita eligendi commodi iste. Ipsam
+        eveniet quas excepturi!loglo Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Ratione, cupiditate. A debitis commodi quisquam
+        officia esse maxime ullam sunt, molestiae unde, culpa tenetur? Non
+        veniam dolorem est delectus ducimus incidunt. Lorem ipsum, dolor sit
+        amet consectetur adipisicing elit. Alias expedita quisquam inventore
+        fugiat. Odit nemo consequatur dignissimos ullam dolore? Tempora, itaque
+        voluptatibus aliquam nobis nostrum quis voluptatem nesciunt. Quis,
+        mollitia. itaque!. Lorem ipsum dolor sit amet, consectetur adipisicing
+        elit. Quaerat voluptatibus libero sapiente maiores aliquid voluptate
+        sequi officiis, explicabo, nihil ex, mollitia laudantium rerum iste odit
+        quas ut nisi omnis accusamus. Lorem ipsum, dolor sit amet consectetur
+        adipisicing elit. Quidem, voluptate ratione velit rem exercitationem
+        officiis veritatis a commodi cumque dignissimos excepturi, sit in
+        delectus perspiciatis fugiat ex dolorem ullam illum. Lorem ipsum dolor
+        sit amet consectetur adipisicing elit. Voluptatem, ducimus, incidunt ad
+        dolorem nisi excepturi sunt eos quos sint quis aut nam, temporibus
+        accusantium autem sapiente officiis perferendis commodi maiores. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Ab numquam nostrum
+        cum fugiat necessitatibus sequi consequatur voluptates, veniam nihil
+        deleniti ea recusandae nisi explicabo amet itaque maxime libero quo
+        asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+        repellendus aspernatur magni molestiae, voluptatibus saepe nobis eum
+        dolorum cupiditate aut repudiandae quos consequatur placeat officia
+        voluptatem atque nam dolores numquam?
+      </p>
+    </section>
+    <script>
+      function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+      }
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+      }
+      let burger = document.getElementById("myBurger");
+      let offset = burger.offsetTop;
+      console.log(offset);
+      function myStickyBurger() {
+        //si le scroll de la fenetre est supérieure ou égal au décalage (offset) du burger alors on lui ajoute la class sticky, sinon on l'enlève.
+        if (window.pageYOffset >= offset) {
+          burger.classList.add("sticky");
+        } else {
+          burger.classList.remove("sticky");
+        }
+      }
+      window.onscroll = function () {
+        myStickyBurger();
+      };
+    </script>
+  </body>
+</html>
